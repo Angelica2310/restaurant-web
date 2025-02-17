@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { X } from "lucide-react";
 
-export default function BookingForm() {
+export default function BookingForm({ setFormOpen }) {
   return (
-    // <!-- component -->
-    <div class="flex items-center justify-center p-12">
+    <div className="flex items-center justify-center p-12 relative">
+      <div
+        className="absolute top-2 right-1 cursor-pointer"
+        onClick={() => setFormOpen(false)}
+      >
+        <X />
+      </div>
       {/* <!-- Author: FormBold Team --> */}
       {/* <!-- Learn More: https://formbold.com --> */}
-      <div class="mx-auto w-full max-w-[550px]">
+      <div className="mx-auto w-full max-w-[550px]">
         <form action="https://formbold.com/s/FORM_ID" method="POST">
-          <div class="-mx-3 flex flex-wrap">
-            <div class="w-full px-3 sm:w-1/2">
-              <div class="mb-5">
+          <div className="-mx-3 flex flex-wrap">
+            <div className="w-full px-3 sm:w-1/2">
+              <div className="mb-5">
                 <label
-                  for="fName"
-                  class="mb-3 block text-base font-medium text-[#07074D]"
+                  htmlFor="fName"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   First Name
                 </label>
@@ -22,15 +28,15 @@ export default function BookingForm() {
                   name="fName"
                   id="fName"
                   placeholder="First Name"
-                  class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
             </div>
-            <div class="w-full px-3 sm:w-1/2">
-              <div class="mb-5">
+            <div className="w-full px-3 sm:w-1/2">
+              <div className="mb-5">
                 <label
-                  for="lName"
-                  class="mb-3 block text-base font-medium text-[#07074D]"
+                  htmlFor="lName"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   Last Name
                 </label>
@@ -39,15 +45,15 @@ export default function BookingForm() {
                   name="lName"
                   id="lName"
                   placeholder="Last Name"
-                  class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
             </div>
           </div>
-          <div class="mb-5">
+          <div className="mb-5">
             <label
-              for="guest"
-              class="mb-3 block text-base font-medium text-[#07074D]"
+              htmlFor="guest"
+              className="mb-3 block text-base font-medium text-[#07074D]"
             >
               How many people in total?
             </label>
@@ -57,16 +63,16 @@ export default function BookingForm() {
               id="guest"
               placeholder="5"
               min="0"
-              class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
           </div>
 
-          <div class="-mx-3 flex flex-wrap">
-            <div class="w-full px-3 sm:w-1/2">
-              <div class="mb-5">
+          <div className="-mx-3 flex flex-wrap">
+            <div className="w-full px-3 sm:w-1/2">
+              <div className="mb-5">
                 <label
-                  for="date"
-                  class="mb-3 block text-base font-medium text-[#07074D]"
+                  htmlFor="date"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   Date
                 </label>
@@ -74,15 +80,15 @@ export default function BookingForm() {
                   type="date"
                   name="date"
                   id="date"
-                  class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
             </div>
-            <div class="w-full px-3 sm:w-1/2">
-              <div class="mb-5">
+            <div className="w-full px-3 sm:w-1/2">
+              <div className="mb-5">
                 <label
-                  for="time"
-                  class="mb-3 block text-base font-medium text-[#07074D]"
+                  htmlFor="time"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
                 >
                   Time
                 </label>
@@ -90,41 +96,41 @@ export default function BookingForm() {
                   type="time"
                   name="time"
                   id="time"
-                  class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
               </div>
             </div>
           </div>
 
-          <div class="mb-5">
-            <label class="mb-3 block text-base font-medium text-[#07074D]">
+          <div className="mb-5">
+            <label className="mb-3 block text-base font-medium text-[#07074D]">
               Is there any children?
             </label>
-            <div class="flex items-center space-x-6">
-              <div class="flex items-center">
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center">
                 <input
                   type="radio"
                   name="radio1"
                   id="radioButton1"
-                  class="h-5 w-5"
+                  className="h-5 w-5"
                 />
                 <label
-                  for="radioButton1"
-                  class="pl-3 text-base font-medium text-[#07074D]"
+                  htmlFor="radioButton1"
+                  className="pl-3 text-base font-medium text-[#07074D]"
                 >
                   Yes
                 </label>
               </div>
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <input
                   type="radio"
                   name="radio1"
                   id="radioButton2"
-                  class="h-5 w-5"
+                  className="h-5 w-5"
                 />
                 <label
-                  for="radioButton2"
-                  class="pl-3 text-base font-medium text-[#07074D]"
+                  htmlFor="radioButton2"
+                  className="pl-3 text-base font-medium text-[#07074D]"
                 >
                   No
                 </label>
@@ -133,7 +139,7 @@ export default function BookingForm() {
           </div>
 
           <div>
-            <button class="hover:shadow-form rounded-md bg-[--darktext] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+            <button className="hover:shadow-form rounded-md bg-[--darktext] py-3 px-8 text-center text-base font-semibold text-white outline-none">
               Submit
             </button>
           </div>
