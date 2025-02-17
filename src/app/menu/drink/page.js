@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 export default function StarterPage() {
   const starterDishes = dishes.filter((starterdish) => {
-    if (starterdish.category === "veggie") return starterdish;
+    if (starterdish.category === "drink") return starterdish;
   });
   // console.log("starterDishes", starterDishes);
 

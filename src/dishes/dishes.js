@@ -34,6 +34,11 @@ export const dishes = [
     category: "veggie",
     src: "/veggie.jpg",
   },
+  {
+    id: 8,
+    category: "drink",
+    src: "/drink-menu.png",
+  },
 ];
 
 // I need a function that takes a 'slug' as an argument and compares that argument to the list of dishes to return the object im trying to find.

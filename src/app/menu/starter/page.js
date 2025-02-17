@@ -48,28 +48,32 @@ export default function StarterPage() {
         </div>
         {/* DISPLAY IMAGE */}
         <div className="flex cursor-pointer relative">
-          <ChevronLeft
-            onClick={() => changePage("prev")}
-            className="absolute top-1/2 -left-1/4"
-          />
+          {currentIndex > 0 && (
+            <ChevronLeft
+              onClick={() => changePage("prev")}
+              className="absolute top-1/4 -left-10 md:-left-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+            />
+          )}
 
-          <div className="border-2 border-[#69311f] p-4">
+          <div className=" p-4 shadow-2xl">
             <Image
               src={starterDishes[currentIndex].src}
-              alt="hero img"
+              alt="starter menu"
               width={0}
               height={0}
-              sizes="100vw"
+              sizes="40vw"
               style={{
                 width: "100%",
                 height: "auto",
               }}
             />
           </div>
-          <ChevronRight
-            onClick={() => changePage("next")}
-            className="absolute top-1/2 -right-1/4"
-          />
+          {currentIndex < starterDishes.length - 1 && (
+            <ChevronRight
+              onClick={() => changePage("next")}
+              className="absolute top-1/4 -right-10 md:-right-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+            />
+          )}
         </div>
       </div>
     </div>
