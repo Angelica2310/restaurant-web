@@ -61,7 +61,7 @@ export default function StarterPage() {
               alt="starter menu"
               width={0}
               height={0}
-              sizes="40vw"
+              sizes="70vw"
               style={{
                 width: "100%",
                 height: "auto",
