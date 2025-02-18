@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <div>
-      <div className="py-10 md:px-8 lg:px-16 xl:px-32 2xl:px-64 text-sm bg-[#af8e4b] text-[#dfdcdc]">
+      <div className="py-10 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 text-sm bg-[#af8e4b] text-[#dfdcdc]">
         {/* TOP */}
         <div className="flex flex-col md:flex-row justify-between gap-24">
           {/* LEFT */}
