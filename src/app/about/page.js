@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col lg:flex-row lg:p-20 p-6 gap-5 text-justify justify-center items-center">
+    <div className="flex flex-col lg:flex-row lg:p-20 p-6 gap-5 text-justify justify-center items-center pb-20">
       <Image
         src="/pho-ga.jpg"
         alt=""
