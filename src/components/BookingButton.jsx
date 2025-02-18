@@ -16,7 +16,7 @@ export default function BookingButton() {
           onClick={() => setFormOpen(false)}
         >
           <div
-            className="bg-white p-4 shadow-lg rounded-lg"
+            className="p-4 shadow-lg rounded-lg"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the form
           >
             <BookingForm setFormOpen={setFormOpen} />

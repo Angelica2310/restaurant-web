@@ -16,8 +16,8 @@ export default function Footer() {
         {/* LEFT */}
         <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-8">
           <Link href="/">
-            <div className="text-2xl tracking-wide text-[#69311f] font-semi">
-              Phở Lan
+            <div className="-ml-3 -mb-10">
+              <Image src="/logo02.png" width={150} height={100} alt="logo" />
             </div>
           </Link>
           <p>931 Spring Bank W, Hull HU5 5BE</p>
@@ -51,7 +51,9 @@ export default function Footer() {
         {/* CENTER */}
         <div className="hidden lg:flex justify-between w-1/3">
           <div className="flex flex-col ">
-            <h1 className="text-lg text-[#69311f] font-semi mb-8">BROWSE</h1>
+            <h1 className="text-lg text-[#69311f] font-semi mb-8 mt-10">
+              BROWSE
+            </h1>
             <div className="flex flex-col gap-6">
               <Link href="/">Home Page</Link>
               <Link href="/about">About Us</Link>
@@ -61,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
         {/* RIGHT */}
-        <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-8">
+        <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-6 md:mt-10">
           <h1 className="text-lg text-[#69311f] font-semi">SUBSCRIBE</h1>
           <p>Sign up to our newsletters</p>
           <div className="flex">

@@ -27,8 +27,8 @@ body {
 
 /* VIEW CARD */
 .card {
-  width: 30vw;
-  height: 30vh;
+  width: 20vw;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,8 +45,8 @@ body {
 }
 @media (max-width: 768px) {
   .card {
-    width: 40vw;
-    height: 20vh;
+    width: 30vw;
+    height: 10vh;
   }
 }
 .card p {
