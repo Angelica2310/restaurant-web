@@ -7,7 +7,7 @@ export default function OpeningHours() {
   return (
     <div>
       <button className="card" onClick={() => setHoursDisplay(true)}>
-        <p>Our Opening Hours</p>
+        <p className="text-xl md:text-2xl">Our Opening Hours</p>
       </button>
       {hoursDisplay && (
         <div

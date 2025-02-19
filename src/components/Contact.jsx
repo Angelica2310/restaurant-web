@@ -6,8 +6,15 @@ export default function Contact() {
   const form = useRef();
   const [message, setMessage] = useState("");
 
+  //   console.log("form", form.current);
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!form.current.checkValidity()) {
+      form.current.reportValidity();
+      return;
+    }
 
     emailjs
       .sendForm("service_53hb6lm", "template_oliqvlp", form.current, {
@@ -42,8 +49,9 @@ export default function Contact() {
             <input
               type="text"
               name="user_name"
-              placeholder="John "
-              className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg    focus:border-[--darktext]  focus:ring-[--lighttext] focus:outline-none focus:ring focus:ring-opacity-40"
+              placeholder="John Doe"
+              className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg    focus:border-[--darktext] focus:outline-none "
+              required
             />
           </div>
         </div>
@@ -56,14 +64,15 @@ export default function Contact() {
             type="email"
             name="user_email"
             placeholder="johndoe@example.com"
-            className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg    focus:border-[--darktext]  focus:ring-[--lighttext] focus:outline-none focus:ring focus:ring-opacity-40"
+            className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg    focus:border-[--darktext] focus:outline-none "
+            required
           />
         </div>
 
         <div className="w-full mt-4">
           <label className="block mb-2 text-sm text-gray-600 ">Message</label>
           <textarea
-            className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56    focus:border-[--darktext]  focus:ring-[--lighttext] focus:outline-none focus:ring focus:ring-opacity-40"
+            className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg md:h-56    focus:border-[--darktext] focus:outline-none"
             name="message"
             placeholder="Message"
           ></textarea>
@@ -72,7 +81,7 @@ export default function Contact() {
         <input
           type="submit"
           value="Send"
-          className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[--darktext] rounded-lg hover:bg-[--medtext] focus:outline-none focus:ring focus:ring-[--medtext] focus:ring-opacity-50"
+          className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[--darktext] rounded-lg hover:bg-[--medtext] focus:outline-none cursor-pointer"
         />
       </form>
       {message && (

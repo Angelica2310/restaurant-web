@@ -1,8 +1,23 @@
+import { CalendarDays, AlarmClockCheck } from "lucide-react";
 import React from "react";
 
 export default function HoursTable() {
   return (
-    <table className="table-auto text-[--darktext] border-2 p-4 border-separate bg-[--background] rounded-lg indent-3 md:indent-7 leading-8 md:leading-10 lg:leading-loose">
+    <table className="table-auto text-[--darktext] border-2 p-4 border-separate bg-[--background] rounded-lg indent-3 md:indent-7 leading-8 md:leading-10">
+      <thead>
+        <tr>
+          <th>
+            <div className="flex items-center justify-center">
+              <CalendarDays />
+            </div>
+          </th>
+          <th>
+            <div className="flex items-center justify-center">
+              <AlarmClockCheck />
+            </div>
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <td>Monday</td>

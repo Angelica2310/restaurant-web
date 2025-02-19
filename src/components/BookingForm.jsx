@@ -1,7 +1,39 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { X } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function BookingForm({ setFormOpen }) {
+  const form = useRef();
+  const [message, setMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (!form.current.checkValidity()) {
+      form.current.reportValidity();
+      return;
+    }
+
+    emailjs
+      .sendForm("service_53hb6lm", "template_iq6x4n9", form.current, {
+        publicKey: "viFgEQwSnD7Ao-QuZ",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          setMessage("Your table has been reserved!");
+          e.target.reset();
+
+          setTimeout(() => {
+            setMessage("");
+          }, 3000);
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          setMessage("Something went wrong. Please try to do it again :(");
+        }
+      );
+  };
   return (
     <div className="flex items-center justify-center p-12 relative bg-[--background]">
       <div
@@ -10,46 +42,33 @@ export default function BookingForm({ setFormOpen }) {
       >
         <X />
       </div>
-      {/* <!-- Author: FormBold Team --> */}
-      {/* <!-- Learn More: https://formbold.com --> */}
       <div className="mx-auto w-full max-w-[550px]">
-        <form action="https://formbold.com/s/FORM_ID" method="POST">
-          <div className="-mx-3 flex flex-wrap">
-            <div className="w-full px-3 sm:w-1/2">
-              <div className="mb-5">
-                <label
-                  htmlFor="fName"
-                  className="mb-3 block text-base font-medium text-[--darktext]"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="fName"
-                  id="fName"
-                  placeholder="First Name"
-                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
-                />
-              </div>
-            </div>
-            <div className="w-full px-3 sm:w-1/2">
-              <div className="mb-5">
-                <label
-                  htmlFor="lName"
-                  className="mb-3 block text-base font-medium text-[--darktext]"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lName"
-                  id="lName"
-                  placeholder="Last Name"
-                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
-                />
-              </div>
-            </div>
+        <form
+          action="https://formbold.com/s/FORM_ID"
+          method="POST"
+          ref={form}
+          onSubmit={sendEmail}
+        >
+          {/* <div className="-mx-3 flex flex-wrap"> */}
+          {/* <div className="w-full px-3 sm:w-1/2"> */}
+          <div className="mb-5">
+            <label
+              htmlFor="fName"
+              className="mb-3 block text-base font-medium text-[--darktext]"
+            >
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="fName"
+              id="fName"
+              required
+              placeholder="Full Name"
+              className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
+            />
           </div>
+          {/* </div> */}
+          {/* </div> */}
           <div className="mb-5">
             <label
               htmlFor="guest"
@@ -60,6 +79,7 @@ export default function BookingForm({ setFormOpen }) {
             <input
               type="number"
               name="guest"
+              required
               id="guest"
               placeholder="5"
               min="0"
@@ -80,6 +100,7 @@ export default function BookingForm({ setFormOpen }) {
                   type="date"
                   name="date"
                   id="date"
+                  required
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
                 />
               </div>
@@ -96,6 +117,7 @@ export default function BookingForm({ setFormOpen }) {
                   type="time"
                   name="time"
                   id="time"
+                  required
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
                 />
               </div>
@@ -104,37 +126,14 @@ export default function BookingForm({ setFormOpen }) {
 
           <div className="mb-5">
             <label className="mb-3 block text-base font-medium text-[--darktext]">
-              Is there any children?
+              Note
             </label>
             <div className="flex items-center space-x-6">
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  name="radio1"
-                  id="radioButton1"
-                  className="h-5 w-5"
-                />
-                <label
-                  htmlFor="radioButton1"
-                  className="pl-3 text-base font-medium text-[--darktext]"
-                >
-                  Yes
-                </label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  name="radio1"
-                  id="radioButton2"
-                  className="h-5 w-5"
-                />
-                <label
-                  htmlFor="radioButton2"
-                  className="pl-3 text-base font-medium text-[--darktext]"
-                >
-                  No
-                </label>
-              </div>
+              <textarea
+                name="note"
+                placeholder="Note"
+                className="block w-full h-32 px-6 py-3 mt-2 text-base text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg md:h-56    focus:border-[--darktext] focus:outline-none"
+              ></textarea>
             </div>
           </div>
 
@@ -144,6 +143,11 @@ export default function BookingForm({ setFormOpen }) {
             </button>
           </div>
         </form>
+        {message && (
+          <div className="mt-4 text-center text-sm font-medium text-green-600 bg-green-100 p-3 rounded-lg">
+            {message}
+          </div>
+        )}
       </div>
     </div>
   );
