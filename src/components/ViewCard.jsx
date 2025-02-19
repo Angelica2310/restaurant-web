@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import OpeningHours from "./OpeningHours";
 
 export default function ViewCard() {
   return (
@@ -13,20 +14,10 @@ export default function ViewCard() {
       }}
     >
       <div className="flex flex-col md:flex-row gap-4">
-        <Link
-          // className="border-2 border-white text-white p-2 cursor-pointer hover:shadow-white hover:shadow-md"
-          className="card"
-          href="/menu"
-        >
+        <Link className="card" href="/menu">
           <p>Our Menu</p>
         </Link>
-        <Link
-          // className="border-2 border-white text-white p-2 cursor-pointer hover:shadow-white hover:shadow-md"
-          className="card"
-          href="/menu"
-        >
-          <p>Our Opening Hours</p>
-        </Link>
+        <OpeningHours />
       </div>
     </div>
   );
