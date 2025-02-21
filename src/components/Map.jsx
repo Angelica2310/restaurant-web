@@ -3,7 +3,7 @@ import React from "react";
 export default function Map() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="overflow-hidden rounded-lg lg:col-span-2 h-96 w-full ">
+      <div className="overflow-hidden rounded-lg lg:col-span-2 h-96 w-full -z-10">
         <iframe
           width="100%"
           height="100%"

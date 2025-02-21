@@ -8,10 +8,10 @@ export default function ActiveLink({ href, children, variant }) {
   const isActive = pathName === href;
 
   const styles = {
-    homeNav: isActive ? "border-b-2 border-[--lighttext] cursor-pointer" : "",
+    homeNav: isActive ? "text-gray-600 cursor-pointer" : "",
     menuNav: isActive
       ? "bg-[--darktext] text-white shadow-xl shadow-slate-400 border-2 border-[--darktext] rounded-lg p-1"
-      : "bg-white text-[--darktext] border-2 border-[--darktext] rounded-lg p-1 ",
+      : "bg-white text-[--darktext] border border-none rounded-lg p-1 ",
   };
 
   return (

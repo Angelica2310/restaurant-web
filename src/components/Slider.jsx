@@ -2,6 +2,8 @@
 import { ChevronsRight, ChevronsLeft } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import Animation from "./Animation";
+Animation;
 
 const slides = [
   {
@@ -111,22 +113,31 @@ export default function Slider() {
       </div>
 
       {/* DISPLAY IMAGE */}
-      <div className="-z-10 relative bg-cover w-full pointer-events-auto ">
-        {slides.length > 0 ? (
-          <Image
-            src={slides[current].src}
-            alt="hero img"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-          />
-        ) : (
-          <p>Loading images...</p>
-        )}
+      <div>
+        <div className="-z-10 relative bg-cover w-full pointer-events-auto ">
+          {slides.length > 0 ? (
+            <Image
+              src={slides[current].src}
+              alt="hero img"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          ) : (
+            <p>Loading images...</p>
+          )}
+        </div>
+        <marquee
+          behavior="scroll"
+          direction="left"
+          className="absolute -bottom-7 md:-bottom-10 lg:-bottom-16 xl:-bottom-20 z-10 font-extrabold"
+        >
+          <Animation />
+        </marquee>
       </div>
     </div>
   );

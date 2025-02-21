@@ -7,11 +7,11 @@ export default function OpeningHours() {
   return (
     <div>
       <button className="card" onClick={() => setHoursDisplay(true)}>
-        <p className="text-xl md:text-2xl">Our Opening Hours</p>
+        <p className="text-xs md:text-base lg:text-lg">Opening Hours</p>
       </button>
       {hoursDisplay && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+          className="inset-0 bg-black bg-opacity-50 flex justify-center items-center fixed"
           onClick={() => setHoursDisplay(false)}
         >
           <div

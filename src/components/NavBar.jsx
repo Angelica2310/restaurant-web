@@ -7,11 +7,11 @@ import BookingButton from "./BookingButton";
 
 export default function NavBar() {
   return (
-    <div className="top-0 sticky bg-[#dfdcdc] z-10 pb-2">
+    <div className="top-0 sticky pb-2 z-50 bg-[--background] ">
       {/* MOBILE */}
       <div className="md:hidden flex flex-row ">
         {/* LEFT */}
-        <div className="w-1/3 flex">
+        <div className="w-1/3 flex animate-tada">
           <Link href="/">
             <Image src="/logo.png" alt="logo" width={150} height={150} />
           </Link>
@@ -28,7 +28,7 @@ export default function NavBar() {
       {/* DESKTOP */}
       <div className="hidden md:flex ">
         {/* LEFT */}
-        <div className="w-1/3 flex">
+        <div className="w-1/3 flex animate-tada">
           <Link href="/">
             {" "}
             <Image src="/logo.png" alt="logo" width={250} height={250} />
@@ -36,18 +36,18 @@ export default function NavBar() {
         </div>
 
         {/* RIGHT */}
-        <div className="w-2/3 flex cursor-pointer items-center justify-end gap-4 mr-4 text-xs md:text-xl lg:text-2xl">
+        <div className="w-2/3 flex cursor-pointer items-center justify-end gap-4 mr-4 text-base md:text-lg lg:text-xl lg:indent-7 transition-all duration-300 ease-in-out">
           <ActiveLink href="/" variant="homeNav">
-            Home
+            <div className="animate-zoomIn">Home</div>
           </ActiveLink>
           <ActiveLink href="/about" variant="homeNav">
-            About us
+            <div className="animate-zoomIn">About us</div>
           </ActiveLink>
           <ActiveLink href="/contact" variant="homeNav">
-            Contact us
+            <div className="animate-zoomIn">Contact us</div>
           </ActiveLink>
           <ActiveLink href="/menu" variant="homeNav">
-            Our Menu
+            <div className="animate-zoomIn">Our Menu</div>
           </ActiveLink>
           <BookingButton />
         </div>
