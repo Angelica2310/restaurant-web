@@ -11,7 +11,7 @@ Animation;
 
 export default function ViewCard() {
   const { scrollYProgress } = useScroll();
-  const rotate = useTransform(scrollYProgress, [0, 2], [0, 45]);
+  const rotate = useTransform(scrollYProgress, [0, 2], [0, 75]);
   return (
     // <div
     //   className="w-full h-[50vh] md:h-[70vh] bg-center bg-no-repeat justify-center flex bg-cover items-center relative"

@@ -122,6 +122,7 @@ export default function Slider() {
               width={0}
               height={0}
               sizes="100vw"
+              layout="intrinsic"
               style={{
                 width: "100%",
                 height: "auto",
