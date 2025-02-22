@@ -102,6 +102,7 @@ export default function BookingForm({ setFormOpen }) {
                   name="date"
                   id="date"
                   required
+                  placeholder="dd/mm/yyyy"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
                 />
               </div>
@@ -119,6 +120,7 @@ export default function BookingForm({ setFormOpen }) {
                   name="time"
                   id="time"
                   required
+                  placeholder="--:--"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
                 />
               </div>

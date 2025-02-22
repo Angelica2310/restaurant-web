@@ -7,7 +7,7 @@ import BookingButton from "./BookingButton";
 
 export default function NavBar() {
   return (
-    <div className="top-0 sticky pb-2 z-50 bg-[--background] ">
+    <div className="top-0 sticky lg:pb-2 z-50 bg-[--background] ">
       {/* MOBILE */}
       <div className="md:hidden flex flex-row ">
         {/* LEFT */}
