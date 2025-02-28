@@ -3,6 +3,7 @@ import { ChevronsRight, ChevronsLeft } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Animation from "./Animation";
+import NavBar from "./NavBar";
 Animation;
 
 const slides = [
@@ -111,7 +112,6 @@ export default function Slider() {
           />
         </div>
       </div>
-
       {/* DISPLAY IMAGE */}
       <div>
         <div className="-z-10 relative bg-cover w-full pointer-events-auto ">

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #dfdcdc;
+  --background: rgb(223, 220, 220);
   --lighttext: #af8e4b;
   --darktext: #69311f;
   --medtext: #765613;
@@ -121,7 +121,7 @@ body {
 }
 
 .custom-shape-divider-top-1739570364 .shape-fill {
-  fill: #dfdcdc;
+  fill: var(--background);
 }
 
 /** For mobile devices **/

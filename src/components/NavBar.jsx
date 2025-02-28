@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import ActiveLink from "./ActiveLink";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,8 +7,26 @@ import MenuDropDown from "./MenuDropDown";
 import BookingButton from "./BookingButton";
 
 export default function NavBar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="top-0 sticky lg:pb-2 z-50 bg-[--background] ">
+    <div
+      className={`sticky top-0 lg:pb-2 z-50 transition-all duration-300 ${
+        scrolled ? "bg-[rgb(223,220,220,0.8)] shadow-lg" : "bg-[--background]"
+      } `}
+    >
       {/* MOBILE */}
       <div className="md:hidden flex flex-row ">
         {/* LEFT */}
@@ -36,7 +55,7 @@ export default function NavBar() {
         </div>
 
         {/* RIGHT */}
-        <div className="w-2/3 flex cursor-pointer items-center justify-end gap-4 mr-4 text-base md:text-lg lg:text-xl lg:indent-7 transition-all duration-300 ease-in-out">
+        <div className="w-2/3 flex cursor-pointer items-center justify-end gap-4 mr-4 text-base font-bold md:text-lg lg:text-xl lg:indent-7 transition-all duration-300 ease-in-out">
           <ActiveLink href="/" variant="homeNav">
             <div className="animate-zoomIn">Home</div>
           </ActiveLink>
