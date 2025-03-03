@@ -5,7 +5,7 @@ import React from "react";
 export default function GoogleReview() {
   return (
     <div
-      className="w-full bg-left-top bg-no-repeat justify-center flex bg-cover items-center relative pt-8"
+      className="w-full bg-left-top bg-no-repeat justify-center flex bg-cover items-center relative pt-8 bg-fixed"
       style={{
         backgroundImage: "url(/review-background.jpg)",
       }}
