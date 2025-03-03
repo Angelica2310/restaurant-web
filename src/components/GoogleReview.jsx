@@ -3,13 +3,14 @@ import React from "react";
 
 export default function GoogleReview() {
   return (
-    <div className="">
+    <div className="pt-8">
+      {/* <!-- Elfsight Google Reviews | Untitled Google Reviews --> */}
       <script
         src="https://static.elfsight.com/platform/platform.js"
         async
       ></script>
       <div
-        className="elfsight-app-cbc6e073-2d57-41ac-b1e1-f3b0cc2f0b30"
+        class="elfsight-app-6b7f1c4d-9ca8-4469-9d65-7232a5d1686b"
         data-elfsight-app-lazy
       ></div>
     </div>
