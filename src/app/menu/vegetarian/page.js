@@ -21,7 +21,12 @@ export default function StarterPage() {
     <div>
       <MenuNav />
 
-      <div className=" flex justify-center items-center flex-col p-4">
+      <div
+        className=" flex justify-center items-center flex-col p-4 w-full bg-center bg-no-repeat bg-cover relative"
+        style={{
+          backgroundImage: "url(/menu-background02.png)",
+        }}
+      >
         <div className="hidden">
           {starterDishes.map((dish, index) => (
             <div key={dish.id}>
@@ -43,7 +48,7 @@ export default function StarterPage() {
               alt="starter menu"
               width={0}
               height={0}
-              sizes="70vw"
+              sizes="60vw"
               style={{
                 width: "100%",
                 height: "auto",
