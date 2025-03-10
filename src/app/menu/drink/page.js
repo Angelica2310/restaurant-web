@@ -43,7 +43,7 @@ export default function StarterPage() {
         </div>
         {/* DISPLAY IMAGE */}
         <div className="flex cursor-pointer relative">
-          <div className=" p-4 shadow-2xl animate-fadeInDown">
+          <div className=" shadow-2xl animate-fadeInDown">
             <Image
               src={starterDishes[currentIndex].src}
               alt="starter menu"
