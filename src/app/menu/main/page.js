@@ -64,13 +64,13 @@ export default function StarterPage() {
             />
           )}
 
-          <div className=" shadow-2xl animate-fadeInDown pt-4">
+          <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
             <Image
               src={starterDishes[currentIndex].src}
               alt="starter menu"
               width={0}
               height={0}
-              sizes="60vw"
+              sizes="100%"
               style={{
                 width: "100%",
                 height: "auto",

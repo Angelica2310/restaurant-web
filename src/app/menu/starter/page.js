@@ -5,6 +5,8 @@ import { dishes } from "@/dishes/dishes";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
+import { Suspense } from "react";
+import { RingLoader } from "react-spinners";
 
 export default function StarterPage() {
   const starterDishes = dishes.filter((starterdish) => {
@@ -53,34 +55,36 @@ export default function StarterPage() {
           ))}
         </div>
         {/* DISPLAY IMAGE */}
-        <div className="flex cursor-pointer relative">
-          {currentIndex > 0 && (
-            <ChevronLeft
-              onClick={() => changePage("prev")}
-              className="absolute top-1/4 -left-10 md:-left-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
-            />
-          )}
+        <Suspense fallback={<RingLoader />}>
+          <div className="flex cursor-pointer relative">
+            {currentIndex > 0 && (
+              <ChevronLeft
+                onClick={() => changePage("prev")}
+                className="absolute top-1/4 -left-10 md:-left-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+              />
+            )}
 
-          <div className=" shadow-2xl animate-fadeInDown pt-4">
-            <Image
-              src={starterDishes[currentIndex].src}
-              alt="starter menu"
-              width={0}
-              height={0}
-              sizes="60vw"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
+            <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
+              <Image
+                src={starterDishes[currentIndex].src}
+                alt="starter menu"
+                width={0}
+                height={0}
+                sizes="100%"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </div>
+            {currentIndex < starterDishes.length - 1 && (
+              <ChevronRight
+                onClick={() => changePage("next")}
+                className="absolute top-1/4 -right-10 md:-right-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+              />
+            )}
           </div>
-          {currentIndex < starterDishes.length - 1 && (
-            <ChevronRight
-              onClick={() => changePage("next")}
-              className="absolute top-1/4 -right-10 md:-right-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
-            />
-          )}
-        </div>
+        </Suspense>
       </div>
     </div>
   );

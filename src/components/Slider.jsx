@@ -3,8 +3,6 @@ import { ChevronsRight, ChevronsLeft } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Animation from "./Animation";
-import NavBar from "./NavBar";
-Animation;
 
 const slides = [
   {
@@ -114,15 +112,15 @@ export default function Slider() {
       </div>
       {/* DISPLAY IMAGE */}
       <div>
-        <div className="-z-10 relative bg-cover w-full pointer-events-auto ">
+        <div className="-z-10 relative bg-cover w-screen h-auto pointer-events-auto ">
           {slides.length > 0 ? (
             <Image
               src={slides[current].src}
               alt="hero img"
               width={0}
               height={0}
-              sizes="100vw"
-              layout="intrinsic"
+              sizes="100%"
+              priority={false}
               style={{
                 width: "100%",
                 height: "auto",
