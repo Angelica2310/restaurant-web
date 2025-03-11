@@ -21,12 +21,13 @@ export default function StarterPage() {
     <div>
       <MenuNav />
 
-      <div
-        className=" flex justify-center items-center flex-col p-4 w-full bg-center bg-no-repeat bg-cover relative"
-        style={{
-          backgroundImage: "url(/menu-background02.png)",
-        }}
-      >
+      <div className=" flex justify-center items-center flex-col p-4 w-full bg-center bg-no-repeat bg-cover relative">
+        <div
+          className="absolute inset-0 opacity-25 z-0 bg-center bg-no-repeat bg-cover bg-fixed"
+          style={{
+            backgroundImage: "url(/menu-background02.png)",
+          }}
+        ></div>
         <div className="hidden">
           {starterDishes.map((dish, index) => (
             <div key={dish.id}>
@@ -42,7 +43,7 @@ export default function StarterPage() {
         </div>
         {/* DISPLAY IMAGE */}
         <div className="flex cursor-pointer relative">
-          <div className=" shadow-2xl animate-fadeInDown">
+          <div className=" shadow-2xl animate-fadeInDown pt-4">
             <Image
               src={starterDishes[currentIndex].src}
               alt="starter menu"

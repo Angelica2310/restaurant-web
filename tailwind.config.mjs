@@ -61,6 +61,10 @@ export default {
             opacity: 1,
           },
         },
+        marquee: {
+          "0%": { transform: "translateX(50%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         zoomIn: "zoomIn 1s ease-out",
@@ -68,6 +72,7 @@ export default {
         tada: "tada 1s ease-in-out 0.25s 1",
         glow: "glow 0.6s ease-in-out 0.25s 1",
         fadeIn: "fade-in 1s ease-in-out 0.25s 1",
+        marquee: "marquee 10s linear infinite",
       },
     },
   },
