@@ -18,8 +18,8 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
-          <div className="gap-12 flex flex-col md:flex-row">
+        <div className="grid grid-cols-1 gap-12 mt-10">
+          <div className="gap-12 flex flex-col md:flex-row justify-center">
             <div>
               <span className="inline-block p-3 text-[--darktext] rounded-full bg-blue-100/80 ">
                 <svg
@@ -104,7 +104,9 @@ export default function ContactPage() {
               <h2 className="mt-4 text-base font-mediud text-[--medtext] ">
                 Phone
               </h2>
-              <p className="mt-2 text-sm text-gray-500 ">Any querries?</p>
+              <p className="mt-2 text-sm text-gray-500 ">
+                Let us know if any querries?
+              </p>
               <p className="mt-2 text-sm text-[--medtext] ">+44 7577 686868</p>
             </div>
           </div>

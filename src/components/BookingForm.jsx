@@ -36,7 +36,7 @@ export default function BookingForm({ setFormOpen }) {
       );
   };
   return (
-    <div className="flex items-center justify-center p-12 relative bg-[--background]">
+    <div className="flex items-center justify-center p-12 relative bg-[--background] w-[90vw] lg:w-[60vw]">
       <div
         className="absolute top-2 right-1 cursor-pointer"
         onClick={() => setFormOpen(false)}

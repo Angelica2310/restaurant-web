@@ -39,7 +39,7 @@ export default function Contact() {
       );
   };
   return (
-    <div className="p-4 py-6 rounded-lg bg-gray-50  md:p-8">
+    <div className="p-4 py-6 rounded-lg bg-gray-50  md:p-8 w-[90vw] lg:w-[60vw]">
       <form ref={form} onSubmit={sendEmail}>
         <div className="-mx-2 md:items-center md:flex">
           <div className="flex-1 px-2">
