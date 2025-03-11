@@ -3,7 +3,8 @@
 import MenuNav from "@/components/MenuNav";
 import { dishes } from "@/dishes/dishes";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
+import { RingLoader } from "react-spinners";
 
 export default function StarterPage() {
   const starterDishes = dishes.filter((starterdish) => {
@@ -18,10 +19,10 @@ export default function StarterPage() {
   }
 
   return (
-    <div>
+    <div className="relative">
       <MenuNav />
 
-      <div className=" flex justify-center items-center flex-col p-4 w-full bg-center bg-no-repeat bg-cover relative">
+      <div className=" flex justify-center items-center flex-col p-4 w-full bg-center bg-no-repeat bg-cover">
         <div
           className="absolute inset-0 opacity-25 z-0 bg-center bg-no-repeat bg-cover bg-fixed"
           style={{
@@ -42,21 +43,23 @@ export default function StarterPage() {
           ))}
         </div>
         {/* DISPLAY IMAGE */}
-        <div className="flex cursor-pointer relative">
-          <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
-            <Image
-              src={starterDishes[currentIndex].src}
-              alt="starter menu"
-              width={0}
-              height={0}
-              sizes="100%"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
+        <Suspense fallback={<RingLoader />}>
+          <div className="flex cursor-pointer">
+            <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
+              <Image
+                src={starterDishes[currentIndex].src}
+                alt="starter menu"
+                width={0}
+                height={0}
+                sizes="100%"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </div>
           </div>
-        </div>
+        </Suspense>
       </div>
     </div>
   );

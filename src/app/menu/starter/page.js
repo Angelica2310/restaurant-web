@@ -31,10 +31,10 @@ export default function StarterPage() {
   };
 
   return (
-    <div>
+    <div className="relative">
       <MenuNav />
 
-      <div className=" flex justify-center items-center flex-col p-4 w-full  relative">
+      <div className=" flex justify-center items-center flex-col p-4 w-full">
         <div
           className="absolute inset-0 opacity-25 z-0 bg-center bg-no-repeat bg-cover bg-fixed"
           style={{

@@ -1,10 +1,24 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ActiveLink from "./ActiveLink";
 
 export default function MenuNav() {
+  // const [scrolled, setScrolled] = useState(false);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 50) {
+  //       setScrolled(true);
+  //     } else {
+  //       setScrolled(false);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
   return (
-    <div className="flex justify-center items-center gap-2 md:gap-5 text-xs md:text-xl sticky top-20 pb-2 z-50 transition-all duration-300 bg-transparent lg:bg-[rgb(223,220,220,0.8)] lg:shadow-lg">
+    <div className="flex justify-center items-center gap-2 md:gap-5 text-xs md:text-xl sticky z-10 top-20 py-2 transition-all duration-300 bg-transparent">
       <ActiveLink href="/menu/starter" variant="menuNav">
         Appertizers
       </ActiveLink>
