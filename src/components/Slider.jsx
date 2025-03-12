@@ -130,11 +130,7 @@ export default function Slider() {
             <p>Loading images...</p>
           )}
         </div>
-        <div
-          // behavior="scroll"
-          // direction="left"
-          className="absolute -bottom-7 md:-bottom-10 lg:-bottom-16 xl:-bottom-20 z-10 font-extrabold inline-block animate-marquee whitespace-nowrap"
-        >
+        <div className="absolute -bottom-7 md:-bottom-10 lg:-bottom-16 xl:-bottom-20 z-10 font-extrabold inline-block overflow-hidden w-full">
           <Animation />
         </div>
       </div>

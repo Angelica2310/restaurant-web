@@ -260,6 +260,21 @@ body {
   }
 }
 
+@keyframes scroll {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll 10s linear infinite;
+}
+
 /* Here are just some visual styles. 🖌 */
 
 .container {
