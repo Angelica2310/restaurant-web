@@ -1,5 +1,6 @@
 "use client";
 
+import DelayedImage from "@/components/DelayedImage";
 import MenuNav from "@/components/MenuNav";
 import { dishes } from "@/dishes/dishes";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -57,36 +58,41 @@ export default function StarterPage() {
           ))}
         </div>
         {/* DISPLAY IMAGE */}
-        <Suspense fallback={<RingLoader />}>
-          <div className="flex cursor-pointer relative">
-            {currentIndex > 0 && (
-              <ChevronLeft
-                onClick={() => changePage("prev")}
-                className="absolute top-1/2 -left-10 md:-left-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
-              />
-            )}
+        <div className="flex cursor-pointer relative">
+          {currentIndex > 0 && (
+            <ChevronLeft
+              onClick={() => changePage("prev")}
+              className="absolute top-1/2 -left-10 md:-left-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+            />
+          )}
 
-            <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
-              <Image
+          <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
+            <Suspense>
+              <DelayedImage
                 src={starterDishes[currentIndex].src}
                 alt="starter menu"
                 width={0}
                 height={0}
                 sizes="100%"
+                className="transition-opacity duration-500 opacity-0"
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.add("opacity-100");
+                }}
                 style={{
                   width: "100%",
                   height: "auto",
                 }}
               />
-            </div>
-            {currentIndex < starterDishes.length - 1 && (
-              <ChevronRight
-                onClick={() => changePage("next")}
-                className="absolute top-1/2 -right-10 md:-right-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
-              />
-            )}
+            </Suspense>
           </div>
-        </Suspense>
+          {currentIndex < starterDishes.length - 1 && (
+            <ChevronRight
+              onClick={() => changePage("next")}
+              className="absolute top-1/2 -right-10 md:-right-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+            />
+          )}
+        </div>
       </div>
     </div>
   );

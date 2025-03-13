@@ -1,5 +1,6 @@
 "use client";
 
+import DelayedImage from "@/components/DelayedImage";
 import MenuNav from "@/components/MenuNav";
 import { dishes } from "@/dishes/dishes";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -44,23 +45,28 @@ export default function StarterPage() {
           ))}
         </div>
         {/* DISPLAY IMAGE */}
-        <Suspense fallback={<RingLoader />}>
-          <div className="flex cursor-pointer relative">
-            <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
-              <Image
+        <div className="flex cursor-pointer relative">
+          <div className=" shadow-2xl animate-fadeInDown pt-4 w-[80vw] md:w-[60vw] lg:w-[40vw]">
+            <Suspense>
+              <DelayedImage
                 src={starterDishes[currentIndex].src}
                 alt="starter menu"
                 width={0}
                 height={0}
                 sizes="100%"
+                className="transition-opacity duration-500 opacity-0"
+                onLoad={(e) => {
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.add("opacity-100");
+                }}
                 style={{
                   width: "100%",
                   height: "auto",
                 }}
               />
-            </div>
+            </Suspense>
           </div>
-        </Suspense>
+        </div>
       </div>
     </div>
   );
