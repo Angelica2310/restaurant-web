@@ -59,7 +59,7 @@ export default function StarterPage() {
           {currentIndex > 0 && (
             <ChevronLeft
               onClick={() => changePage("prev")}
-              className="absolute top-1/4 -left-10 md:-left-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+              className="fixed top-1/2 -translate-y-1/2 left-[2vw] md:left-[15vw] w-8 h-8 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
             />
           )}
 
@@ -86,7 +86,7 @@ export default function StarterPage() {
           {currentIndex < starterDishes.length - 1 && (
             <ChevronRight
               onClick={() => changePage("next")}
-              className="absolute top-1/4 -right-10 md:-right-20 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
+              className="fixed top-1/2 -translate-y-1/2 right-[2vw] md:right-[15vw] w-8 h-8 md:w-10 md:h-10 border rounded-2xl border-[--darktext]"
             />
           )}
         </div>
