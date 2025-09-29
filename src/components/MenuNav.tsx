@@ -25,7 +25,7 @@ export default function MenuNav() {
       <ActiveLink href="/menu/main" variant="menuNav">
         Main Course
       </ActiveLink>
-      <ActiveLink href="/menu/vegetarian" variant="menuNav">
+      <ActiveLink href="/menu/veggie" variant="menuNav">
         Vegeterian & Specialities
       </ActiveLink>
       <ActiveLink href="/menu/drink" variant="menuNav">

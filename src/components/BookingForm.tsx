@@ -3,11 +3,15 @@ import React, { useRef, useState } from "react";
 import { X } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
+type BookingFormProps = {
+  setFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
 export default function BookingForm({ setFormOpen }) {
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
   const [message, setMessage] = useState("");
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!form.current.checkValidity()) {
@@ -23,7 +27,7 @@ export default function BookingForm({ setFormOpen }) {
         () => {
           console.log("SUCCESS!");
           setMessage("Your table has been reserved!");
-          e.target.reset();
+          // e.target.reset();
 
           setTimeout(() => {
             setMessage("");

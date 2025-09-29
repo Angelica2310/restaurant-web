@@ -1,4 +1,4 @@
-export const dishes = [
+export const dishes: Dish[] = [
   {
     id: 1,
     category: "starter",
@@ -41,7 +41,15 @@ export const dishes = [
   },
 ];
 
+// Define type
+type Dish = {
+  id: number;
+  category: string;
+  src: string;
+};
+
 // I need a function that takes a 'slug' as an argument and compares that argument to the list of dishes to return the object im trying to find.
-export function findBySlug(slug) {
-  return dishes.find((dish) => dish.slug === slug);
+export function findByCategory(slug: string, dishes: Dish[]): Dish[] {
+  const s = slug.toLowerCase().trim();
+  return dishes.filter((dish) => dish.category.toLowerCase().trim() === s);
 }

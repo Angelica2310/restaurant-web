@@ -3,12 +3,12 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
   const [message, setMessage] = useState("");
 
   //   console.log("form", form.current);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!form.current.checkValidity()) {
@@ -26,7 +26,7 @@ export default function Contact() {
           setMessage(
             "Your message has been received. We will get back to you shortly! ✅ "
           );
-          e.target.reset();
+          // e.target.reset();
 
           setTimeout(() => {
             setMessage("");
