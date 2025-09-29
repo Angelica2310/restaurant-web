@@ -40,11 +40,17 @@ export default function ViewCard() {
             />
           </div>
           <div>
-            <p className="text-4xl md:pt-10 lg:text-6xl xl:text-8xl xl:pb-6 lg:px-8 px-4 py-4 pb-2 hover:animate-tada font-serif">
+            <p className="text-4xl md:pt-10 lg:text-6xl xl:text-8xl xl:pb-6 lg:px-8 px-4 py-4 pb-2 font-serif">
               Wonderful dining experience & food.
             </p>
             <div className="text-justify md:text-xl lg:text-2xl md:pl-3 bg-white/70 backdrop-sepia-50 md:py-2 md:px-7 lg:px-10 px-4">
-              <FadeInText />
+              From the moment you step in, you'll be greeted with a cozy
+              ambiance, friendly service, and the irresistible aroma of freshly
+              prepared dishes. Whether you're here for a casual meal or a
+              special occasion, we promise an unforgettable dining experience
+              filled with vibrant flavors, fresh ingredients, and a touch of
+              culinary artistry. Sit back, relax, and let us take you on a
+              delicious journey that will keep you coming back for more!
             </div>
             <motion.div style={{ rotate }}>
               <Image
