@@ -31,7 +31,7 @@ export default function Slider() {
     return () => clearInterval(interval);
   }, []);
 
-  const changeBackground = (direction) => {
+  const changeBackground = (direction: string) => {
     setCurrent((prevIndex) => {
       if (direction === "next") {
         return prevIndex === slides.length - 1 ? 0 : prevIndex + 1;
@@ -41,7 +41,7 @@ export default function Slider() {
     });
   };
 
-  const handleClickImage = (index) => {
+  const handleClickImage = (index: number) => {
     setCurrent(index);
   };
 

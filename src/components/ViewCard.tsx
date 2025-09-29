@@ -3,24 +3,12 @@ import Link from "next/link";
 import OpeningHours from "./OpeningHours";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Animation from "./Animation";
 import { Package, Award, ShoppingBag } from "lucide-react";
-import FadeInText from "./FadeInText";
-
-Animation;
 
 export default function ViewCard() {
   const { scrollYProgress } = useScroll();
   const rotate = useTransform(scrollYProgress, [0, 1.7], [0, 75]);
   return (
-    // <div
-    //   className="w-full h-[50vh] md:h-[70vh] bg-center bg-no-repeat justify-center flex bg-cover items-center relative"
-    //   style={{
-    //     backgroundImage:
-    //       "linear-gradient(rgba(0,0,0,0.527), rgba(0,0,0,0.5)), url(/background.jpg)",
-    //     backgroundPosition: "center",
-    //   }}
-    // >
     <div
       className="w-full bg-left-top bg-no-repeat justify-center flex bg-cover items-center relative"
       style={{
