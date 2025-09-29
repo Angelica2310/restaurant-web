@@ -3,24 +3,12 @@ import Link from "next/link";
 import OpeningHours from "./OpeningHours";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Animation from "./Animation";
 import { Package, Award, ShoppingBag } from "lucide-react";
-import FadeInText from "./FadeInText";
-
-Animation;
 
 export default function ViewCard() {
   const { scrollYProgress } = useScroll();
   const rotate = useTransform(scrollYProgress, [0, 1.7], [0, 75]);
   return (
-    // <div
-    //   className="w-full h-[50vh] md:h-[70vh] bg-center bg-no-repeat justify-center flex bg-cover items-center relative"
-    //   style={{
-    //     backgroundImage:
-    //       "linear-gradient(rgba(0,0,0,0.527), rgba(0,0,0,0.5)), url(/background.jpg)",
-    //     backgroundPosition: "center",
-    //   }}
-    // >
     <div
       className="w-full bg-left-top bg-no-repeat justify-center flex bg-cover items-center relative"
       style={{
@@ -40,11 +28,17 @@ export default function ViewCard() {
             />
           </div>
           <div>
-            <p className="text-4xl md:pt-10 lg:text-6xl xl:text-8xl xl:pb-6 lg:px-8 px-4 py-4 pb-2 hover:animate-tada font-serif">
+            <p className="text-4xl md:pt-10 lg:text-6xl xl:text-8xl xl:pb-6 lg:px-8 px-4 py-4 pb-2 font-serif">
               Wonderful dining experience & food.
             </p>
             <div className="text-justify md:text-xl lg:text-2xl md:pl-3 bg-white/70 backdrop-sepia-50 md:py-2 md:px-7 lg:px-10 px-4">
-              <FadeInText />
+              From the moment you step in, you'll be greeted with a cozy
+              ambiance, friendly service, and the irresistible aroma of freshly
+              prepared dishes. Whether you're here for a casual meal or a
+              special occasion, we promise an unforgettable dining experience
+              filled with vibrant flavors, fresh ingredients, and a touch of
+              culinary artistry. Sit back, relax, and let us take you on a
+              delicious journey that will keep you coming back for more!
             </div>
             <motion.div style={{ rotate }}>
               <Image

@@ -7,8 +7,8 @@ export default function AboutPage() {
       <Image
         src="/pho-ga.jpg"
         alt=""
-        width={0}
-        height={0}
+        width={800}
+        height={800}
         sizes="100%"
         className=" w-full max-w-[600px] h-auto mx-auto"
       />

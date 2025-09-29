@@ -76,7 +76,7 @@ export default function CategoryPage({
             <Suspense>
               <DelayedImage
                 src={items[currentIndex]?.src}
-                alt={`${items[currentIndex].id}`}
+                alt="image"
                 width={800}
                 height={800}
                 sizes="100%"
