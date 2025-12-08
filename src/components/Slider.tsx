@@ -7,15 +7,15 @@ import Animation from "./Animation";
 const slides = [
   {
     id: 1,
-    src: "/banhxeo.jpg",
+    src: "/cachien.jpg",
   },
   {
     id: 2,
-    src: "/goicuon.jpg",
+    src: "/nemnuong.jpg",
   },
   {
     id: 3,
-    src: "/pho.png",
+    src: "/pho.jpg",
   },
 ];
 
@@ -112,19 +112,14 @@ export default function Slider() {
       </div>
       {/* DISPLAY IMAGE */}
       <div>
-        <div className="-z-10 relative bg-cover w-screen h-auto pointer-events-auto ">
+        <div className="-z-10 relative w-screen h-[60vh] overflow-hidden pointer-events-auto ">
           {slides.length > 0 ? (
             <Image
               src={slides[current].src}
               alt="hero img"
-              width={0}
-              height={0}
-              sizes="100%"
+              fill
               priority={false}
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
+              className="object-cover"
             />
           ) : (
             <p>Loading images...</p>

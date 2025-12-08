@@ -16,7 +16,7 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata = {
-  title: "Pho Lan",
+  title: "Pho Lan Restaurant",
   description: "Authentic Vietnamese Restaurant in Hull",
 };
 
