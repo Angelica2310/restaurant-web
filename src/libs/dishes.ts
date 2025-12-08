@@ -2,37 +2,37 @@ export const dishes: Dish[] = [
   {
     id: 1,
     category: "starter",
-    src: "/starter01.jpg",
+    src: "/starter01.png",
   },
   {
     id: 2,
     category: "starter",
-    src: "/starter02.jpg",
+    src: "/starter02.png",
   },
   {
     id: 3,
     category: "main",
-    src: "/main01.jpg",
+    src: "/main01.png",
   },
   {
     id: 4,
     category: "main",
-    src: "/main02.jpg",
+    src: "/main02.png",
   },
   {
     id: 5,
     category: "main",
-    src: "/main03.jpg",
+    src: "/main03.png",
   },
   {
     id: 6,
     category: "main",
-    src: "/main04.jpg",
+    src: "/main04.png",
   },
   {
     id: 7,
     category: "veggie",
-    src: "/veggie.jpg",
+    src: "/veggie.png",
   },
   {
     id: 8,
