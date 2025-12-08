@@ -138,7 +138,7 @@ export default function BookingForm({ setFormOpen }) {
             <div className="flex items-center space-x-6">
               <textarea
                 name="note"
-                placeholder="Note"
+                placeholder="Please also include your telephone number!"
                 className="block w-full h-32 px-6 py-3 mt-2 text-base text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg md:h-56    focus:border-[--darktext] focus:outline-none"
               ></textarea>
             </div>
