@@ -54,14 +54,12 @@ export default function BookingForm({ setFormOpen }) {
           ref={form}
           onSubmit={sendEmail}
         >
-          {/* <div className="-mx-3 flex flex-wrap"> */}
-          {/* <div className="w-full px-3 sm:w-1/2"> */}
-          <div className="mb-5">
+          <div className="mb-2">
             <label
               htmlFor="fName"
-              className="mb-3 block text-base font-medium text-[--darktext]"
+              className="block text-base font-medium text-[--darktext]"
             >
-              Full Name
+              John Doe
             </label>
             <input
               type="text"
@@ -72,12 +70,28 @@ export default function BookingForm({ setFormOpen }) {
               className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
             />
           </div>
-          {/* </div> */}
-          {/* </div> */}
+
+          <div className="mb-5">
+            <label
+              htmlFor="tel"
+              className="block text-base font-medium text-[--darktext]"
+            >
+              Phone Number{" "}
+            </label>
+            <input
+              type="number"
+              name="tel"
+              id="tel"
+              required
+              placeholder="07777 123 456"
+              className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
+            />
+          </div>
+
           <div className="mb-5">
             <label
               htmlFor="guest"
-              className="mb-3 block text-base font-medium text-[--darktext]"
+              className="block text-base font-medium text-[--darktext]"
             >
               How many people in total?
             </label>
@@ -97,7 +111,7 @@ export default function BookingForm({ setFormOpen }) {
               <div className="mb-5">
                 <label
                   htmlFor="date"
-                  className="mb-3 block text-base font-medium text-[--darktext]"
+                  className="block text-base font-medium text-[--darktext]"
                 >
                   Date
                 </label>
@@ -115,7 +129,7 @@ export default function BookingForm({ setFormOpen }) {
               <div className="mb-5">
                 <label
                   htmlFor="time"
-                  className="mb-3 block text-base font-medium text-[--darktext]"
+                  className="block text-base font-medium text-[--darktext]"
                 >
                   Time
                 </label>
@@ -132,14 +146,14 @@ export default function BookingForm({ setFormOpen }) {
           </div>
 
           <div className="mb-5">
-            <label className="mb-3 block text-base font-medium text-[--darktext]">
+            <label className="block text-base font-medium text-[--darktext]">
               Note
             </label>
             <div className="flex items-center space-x-6">
               <textarea
                 name="note"
-                placeholder="Please also include your telephone number!"
-                className="block w-full h-32 px-6 py-3 mt-2 text-base text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg md:h-56    focus:border-[--darktext] focus:outline-none"
+                placeholder="Anything if you wish to inform us!"
+                className="block w-full h-32 px-6 py-3 mt-2 text-base text-gray-700 placeholder-gray-400 bg-white border-2 border-gray-200 rounded-lg    focus:border-[--darktext] focus:outline-none"
               ></textarea>
             </div>
           </div>
