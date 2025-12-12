@@ -2,7 +2,8 @@ import React from "react";
 import Slider from "@/components/Slider";
 import NavBar from "@/components/NavBar";
 import Map from "@/components/Map";
-import GoogleReview from "@/components/GoogleReview";
+// import GoogleReview from "@/components/GoogleReview";
+import GoogleReviewsStatic from "@/components/GoggleReviewStatic";
 import ViewCard from "@/components/ViewCard";
 // import Animation from "@/components/Animation";
 
@@ -20,7 +21,8 @@ export default function Home() {
         </marquee> */}
       </div>
       <ViewCard />
-      <GoogleReview />
+      {/* <GoogleReview /> */}
+      <GoogleReviewsStatic />
       <Map />
     </div>
   );
