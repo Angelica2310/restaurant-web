@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${(delius.variable, bebas.variable)}`}>
         <NavBar />
-        <ClosureBanner />
+        {/* <ClosureBanner /> */}
         {children}
         <Footer />
       </body>
