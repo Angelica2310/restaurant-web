@@ -2,6 +2,7 @@ import { Delius_Unicase, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import ClosureBanner from "@/components/ClosureBanner";
 
 const delius = Delius_Unicase({
   variable: "--font-delius",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${(delius.variable, bebas.variable)}`}>
         <NavBar />
+        <ClosureBanner />
         {children}
         <Footer />
       </body>

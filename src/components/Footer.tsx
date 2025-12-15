@@ -95,6 +95,10 @@ export default function Footer() {
           </div>
           {/* BOTTOM */}
         </div>
+        <div className="mt-10 pt-6 border-t border-[#dfdcdc]/30 text-center text-xs text-[#dfdcdc]">
+          © {new Date().getFullYear()} Phở Lan Hull. All rights reserved. •
+          Designed & Developed by Angelica
+        </div>
       </div>
     </div>
   );
