@@ -177,11 +177,10 @@ export default function BookingForm({ setFormOpen }) {
           </div>
         </form>
         {message && (
-          <div
-            ref={successRef}
-            className="mt-6 text-center text-lg font-semibold text-green-700 bg-green-100 border border-green-300 p-6 rounded-xl shadow-md animate-pulse"
-          >
-            {message}
+          <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-xl">
+            <div className="text-center text-xl font-semibold text-green-700 bg-green-100 border border-green-300 p-8 rounded-2xl shadow-lg">
+              {message}
+            </div>
           </div>
         )}
       </div>
