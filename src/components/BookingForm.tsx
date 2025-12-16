@@ -14,6 +14,9 @@ export default function BookingForm({ setFormOpen }) {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const fd = new FormData(form.current!);
+    console.log("tel =", fd.get("tel"));
+
     if (!form.current.checkValidity()) {
       form.current.reportValidity();
       return;
@@ -27,11 +30,11 @@ export default function BookingForm({ setFormOpen }) {
         () => {
           console.log("SUCCESS!");
           setMessage("Your table has been reserved!");
-          // e.target.reset();
+          form.current?.reset();
 
           setTimeout(() => {
             setMessage("");
-          }, 3000);
+          }, 5000);
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -165,7 +168,7 @@ export default function BookingForm({ setFormOpen }) {
           </div>
         </form>
         {message && (
-          <div className="mt-4 text-center text-sm font-medium text-green-600 bg-green-100 p-3 rounded-lg">
+          <div className="mt-6 text-center text-lg font-semibold text-green-700 bg-green-100 border border-green-300 p-6 rounded-xl shadow-md animate-pulse">
             {message}
           </div>
         )}
