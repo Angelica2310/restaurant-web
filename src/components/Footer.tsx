@@ -97,7 +97,15 @@ export default function Footer() {
         </div>
         <div className="mt-10 pt-6 border-t border-[#dfdcdc]/30 text-center text-xs text-[#dfdcdc]">
           © {new Date().getFullYear()} Phở Lan Hull. All rights reserved. •
-          Designed & Developed by Angelica
+          Design & development by{" "}
+          <a
+            href="https://www.angelicagiang.com/"
+            target="_blank"
+            rel="noopener"
+            className="text-[#765613] hover:text-[#69311f] transition"
+          >
+            Angelica
+          </a>
         </div>
       </div>
     </div>

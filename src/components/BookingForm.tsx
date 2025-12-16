@@ -9,6 +9,8 @@ type BookingFormProps = {
 
 export default function BookingForm({ setFormOpen }) {
   const form = useRef<HTMLFormElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+
   const [message, setMessage] = useState("");
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,6 +33,13 @@ export default function BookingForm({ setFormOpen }) {
           console.log("SUCCESS!");
           setMessage("Your table has been reserved!");
           form.current?.reset();
+
+          setTimeout(() => {
+            successRef.current?.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }, 100);
 
           setTimeout(() => {
             setMessage("");
@@ -62,14 +71,14 @@ export default function BookingForm({ setFormOpen }) {
               htmlFor="fName"
               className="block text-base font-medium text-[--darktext]"
             >
-              John Doe
+              Full Name
             </label>
             <input
               type="text"
               name="fName"
               id="fName"
               required
-              placeholder="Full Name"
+              placeholder=""
               className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
             />
           </div>
@@ -86,7 +95,7 @@ export default function BookingForm({ setFormOpen }) {
               name="tel"
               id="tel"
               required
-              placeholder="07777 123 456"
+              placeholder=""
               className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
             />
           </div>
@@ -103,7 +112,7 @@ export default function BookingForm({ setFormOpen }) {
               name="guest"
               required
               id="guest"
-              placeholder="5"
+              placeholder=""
               min="0"
               className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
             />
@@ -168,7 +177,10 @@ export default function BookingForm({ setFormOpen }) {
           </div>
         </form>
         {message && (
-          <div className="mt-6 text-center text-lg font-semibold text-green-700 bg-green-100 border border-green-300 p-6 rounded-xl shadow-md animate-pulse">
+          <div
+            ref={successRef}
+            className="mt-6 text-center text-lg font-semibold text-green-700 bg-green-100 border border-green-300 p-6 rounded-xl shadow-md animate-pulse"
+          >
             {message}
           </div>
         )}

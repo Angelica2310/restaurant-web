@@ -2,7 +2,6 @@ import { Delius_Unicase, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import ClosureBanner from "@/components/ClosureBanner";
 
 const delius = Delius_Unicase({
   variable: "--font-delius",
@@ -18,7 +17,8 @@ const bebas = Bebas_Neue({
 
 export const metadata = {
   title: "Pho Lan Restaurant",
-  description: "Authentic Vietnamese Restaurant in Hull",
+  description:
+    "Authentic Vietnamese food in Hull. Book a table online or call us.",
 };
 
 export default function RootLayout({ children }) {
