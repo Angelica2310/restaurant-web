@@ -44,9 +44,12 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-gray-500 ">
                 Our friendly team is here to help.
               </p>
-              <p className="mt-2 text-sm text-[--darktext] ">
+              <a
+                href="mailto:pholan281022@gmail.com"
+                className="mt-2 text-sm text-[--darktext] hover:underline"
+              >
                 pholan281022@gmail.com
-              </p>
+              </a>
             </div>
 
             <div>
@@ -107,7 +110,12 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-gray-500 ">
                 Let us know if any querries?
               </p>
-              <p className="mt-2 text-sm text-[--medtext] ">+44 7577 686868</p>
+              <a
+                href="tel:07577686868"
+                className="mt-2 text-sm text-[--medtext] hover:underline"
+              >
+                +44 7577 686868
+              </a>
             </div>
           </div>
 

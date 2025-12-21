@@ -7,7 +7,7 @@ import Animation from "./Animation";
 const slides = [
   {
     id: 1,
-    src: "/cachien.jpg",
+    src: "/ganuong.jpg",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const slides = [
   },
   {
     id: 3,
-    src: "/pho.jpg",
+    src: "/mixao.jpg",
   },
 ];
 
@@ -112,19 +112,33 @@ export default function Slider() {
       </div>
       {/* DISPLAY IMAGE */}
       <div>
-        <div className="-z-10 relative w-screen h-[60vh] overflow-hidden pointer-events-auto ">
+        <div className="-z-10 relative w-screen h-[40vh] sm:h-[55vh] md:h-[80vh] overflow-hidden">
           {slides.length > 0 ? (
-            <Image
-              src={slides[current].src}
-              alt="hero img"
-              fill
-              priority={false}
-              className="object-cover"
-            />
+            <>
+              {/* BLURRED BACKGROUND */}
+              <Image
+                src={slides[current].src}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover blur-xl scale-110 opacity-40"
+                aria-hidden
+              />
+
+              {/* FOREGROUND IMAGE */}
+              <Image
+                src={slides[current].src}
+                alt="hero img"
+                fill
+                sizes="100vw"
+                className="object-contain md:object-cover"
+              />
+            </>
           ) : (
             <p>Loading images...</p>
           )}
         </div>
+
         <div className="absolute -bottom-7 md:-bottom-10 lg:-bottom-16 xl:-bottom-20 z-10 font-extrabold inline-block overflow-hidden w-full">
           <Animation />
         </div>

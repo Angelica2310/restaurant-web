@@ -13,7 +13,7 @@ export default function Footer() {
     <div>
       <div className="py-10 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 text-sm bg-[#af8e4b] text-[#dfdcdc]">
         {/* TOP */}
-        <div className="flex flex-col md:flex-row justify-between gap-24">
+        <div className="flex flex-col md:flex-row justify-between gap-12 lg:gap-24">
           {/* LEFT */}
           <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-8">
             <Link href="/">
@@ -28,6 +28,7 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/people/Ph%E1%BB%9F-Lan-Hull/100087597489339/"
                 target="_blank"
+                rel="noopener"
               >
                 <Image
                   src="/facebook.png"
@@ -39,6 +40,7 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/pholan281022/?hl=en"
                 target="_blank"
+                rel="noopener"
               >
                 <Image
                   src="/instagram.png"
@@ -49,12 +51,13 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
           {/* CENTER */}
-          <div className="hidden lg:flex justify-between w-1/3">
-            <div className="flex flex-col ">
-              <h1 className="text-lg text-[#69311f] font-semi mb-8 mt-10">
-                BROWSE
-              </h1>
+          <div className="hidden lg:flex justify-center w-1/3">
+            <div className="flex flex-col">
+              <h2 className="text-lg text-[#69311f] font-semibold mb-8 mt-10 uppercase">
+                Browse
+              </h2>
               <div className="flex flex-col gap-6">
                 <Link href="/">Home Page</Link>
                 <Link href="/about">About Us</Link>
@@ -63,38 +66,50 @@ export default function Footer() {
               </div>
             </div>
           </div>
+
           {/* RIGHT */}
           <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-6 md:mt-10">
-            <h1 className="text-lg text-[#69311f] font-semi">SUBSCRIBE</h1>
-            <p>Sign up to our newsletters</p>
-            <div className="flex">
-              <input
-                type="text"
-                placeholder="Email address"
-                className="p-4 w-3/4 outline-none"
-              />
-              <button className="w-1/4 bg-[#69311f] text-white hover:bg-[#765613]">
-                JOIN
-              </button>
-            </div>
-            <span className="font-semibold">Accepted Payments</span>
-            <div className="flex justify-between">
-              {paymentImages.map(
-                (image, index) =>
-                  image.src && (
-                    <Image
-                      key={index}
-                      src={image.src}
-                      alt={image.alt}
-                      width={40}
-                      height={20}
-                    />
-                  )
-              )}
+            {/* inner width constraint */}
+            <div className="max-w-xs">
+              <h2 className="text-lg text-[#69311f] font-semibold uppercase">
+                Opening Hours
+              </h2>
+
+              <div className="mt-4 space-y-2 text-sm md:text-base">
+                <div className="flex justify-between gap-6">
+                  <span className="font-medium">Sun – Thu</span>
+                  <span>12:00 – 22:00</span>
+                </div>
+                <div className="flex justify-between gap-6">
+                  <span className="font-medium">Fri – Sat</span>
+                  <span>12:00 – 22:30</span>
+                </div>
+              </div>
+
+              <span className="mt-6 block font-semibold">
+                Accepted Payments
+              </span>
+
+              <div className="mt-3 flex items-center gap-6">
+                {paymentImages.map(
+                  (image, index) =>
+                    image.src && (
+                      <Image
+                        key={index}
+                        src={image.src}
+                        alt={image.alt}
+                        width={40}
+                        height={20}
+                        className="opacity-90"
+                      />
+                    )
+                )}
+              </div>
             </div>
           </div>
-          {/* BOTTOM */}
         </div>
+
+        {/* BOTTOM */}
         <div className="mt-10 pt-6 border-t border-[#dfdcdc]/30 text-center text-xs text-[#dfdcdc]">
           © {new Date().getFullYear()} Phở Lan Hull. All rights reserved. •
           Design & development by{" "}
