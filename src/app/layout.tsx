@@ -28,7 +28,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${(delius.variable, bebas.variable)}`}>
+      <body
+        className={`${
+          (delius.variable, bebas.variable)
+        } min-h-screen flex flex-col`}
+      >
         <NavBar />
         {children}
         <Analytics />

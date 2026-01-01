@@ -118,8 +118,6 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
-
-          <Contact />
         </div>
       </div>
     </section>

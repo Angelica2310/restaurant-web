@@ -24,32 +24,47 @@ export default function BookingForm({ setFormOpen }) {
       return;
     }
 
+    console.log("sending to restaurant...");
     emailjs
-      .sendForm("service_53hb6lm", "template_iq6x4n9", form.current, {
+      .sendForm("service_fzq0n18", "template_iq6x4n9", form.current, {
         publicKey: "viFgEQwSnD7Ao-QuZ",
       })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setMessage("Your table has been reserved!");
-          form.current?.reset();
+      .then((res) => {
+        console.log("restaurant email success:", res);
+        console.log("sending to customer...");
+        // 1️⃣ send confirmation to customer
+        return emailjs.sendForm(
+          "service_fzq0n18",
+          "template_1xmy8mh",
+          form.current!,
+          {
+            publicKey: "viFgEQwSnD7Ao-QuZ",
+          }
+        );
+      })
+      .then((res) => {
+        console.log("customer email success:", res);
+        // 2️⃣ both emails sent successfully
+        setMessage("Your table has been reserved!");
+        form.current?.reset();
 
-          setTimeout(() => {
-            successRef.current?.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }, 100);
+        setTimeout(() => {
+          successRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 100);
 
-          setTimeout(() => {
-            setMessage("");
-          }, 5000);
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          setMessage("Something went wrong. Please try to do it again :(");
-        }
-      );
+        setTimeout(() => {
+          setMessage("");
+        }, 5000);
+      })
+      .catch((error) => {
+        console.log("FAILED full error:", error);
+        console.log("FAILED text:", error?.text);
+        console.log("FAILED status:", error?.status);
+        setMessage("Something went wrong. Please try again.");
+      });
   };
   return (
     <div className="flex items-center justify-center p-12 relative bg-[--background] w-[90vw] lg:w-[60vw] mt-20">
@@ -83,7 +98,7 @@ export default function BookingForm({ setFormOpen }) {
             />
           </div>
 
-          <div className="mb-5">
+          <div className="mb-2">
             <label
               htmlFor="tel"
               className="block text-base font-medium text-[--darktext]"
@@ -100,7 +115,23 @@ export default function BookingForm({ setFormOpen }) {
             />
           </div>
 
-          <div className="mb-5">
+          <div className="mb-2">
+            <label
+              htmlFor="email"
+              className="block text-base font-medium text-[--darktext]"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6"
+            />
+          </div>
+
+          <div className="mb-2">
             <label
               htmlFor="guest"
               className="block text-base font-medium text-[--darktext]"
@@ -120,7 +151,7 @@ export default function BookingForm({ setFormOpen }) {
 
           <div className="-mx-3 flex flex-wrap">
             <div className="w-full px-3 sm:w-1/2">
-              <div className="mb-5">
+              <div className="mb-2">
                 <label
                   htmlFor="date"
                   className="block text-base font-medium text-[--darktext]"
@@ -138,7 +169,7 @@ export default function BookingForm({ setFormOpen }) {
               </div>
             </div>
             <div className="w-full px-3 sm:w-1/2">
-              <div className="mb-5">
+              <div className="mb-2">
                 <label
                   htmlFor="time"
                   className="block text-base font-medium text-[--darktext]"
