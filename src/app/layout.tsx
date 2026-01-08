@@ -22,7 +22,7 @@ export const metadata = {
   description:
     "Authentic Vietnamese food in Hull. Book a table online or call us.",
   icons: {
-    icon: [{ url: "/favicon.png", sizes: "48x48", type: "image/png" }],
+    icon: [{ url: "/favicon.png", sizes: "192x192", type: "image/png" }],
   },
 };
 
