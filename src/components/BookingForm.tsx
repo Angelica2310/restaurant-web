@@ -7,11 +7,22 @@ type BookingFormProps = {
   setFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+function formatDDMMYYYYFromISO(iso: string) {
+  const [yyyy, mm, dd] = iso.split("-");
+  return `${dd}-${mm}-${yyyy}`;
+}
+
 export default function BookingForm({ setFormOpen }) {
   const form = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
 
   const [message, setMessage] = useState("");
+
+  const CLOSED_START_ISO = "2026-02-15";
+  const CLOSED_END_ISO = "2026-03-13";
+
+  const [date, setDate] = useState("");
+  const [dateError, setDateError] = useState("");
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,7 +35,21 @@ export default function BookingForm({ setFormOpen }) {
       return;
     }
 
-    console.log("sending to restaurant...");
+    // hard block submit
+    if (!date) {
+      setDateError("Please choose a date.");
+      return;
+    }
+
+    const inClosedRange = date >= CLOSED_START_ISO && date <= CLOSED_END_ISO;
+
+    if (inClosedRange) {
+      setDateError(
+        `Sorry, we will close from ${CLOSED_START_ISO} to ${CLOSED_END_ISO}.`
+      );
+      return;
+    }
+
     emailjs
       .sendForm("service_fzq0n18", "template_iq6x4n9", form.current, {
         publicKey: "viFgEQwSnD7Ao-QuZ",
@@ -66,6 +91,29 @@ export default function BookingForm({ setFormOpen }) {
         setMessage("Something went wrong. Please try again.");
       });
   };
+
+  function handleDateChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value; // YYYY-MM-DD
+    setDate(value);
+
+    if (!value) {
+      setDateError("");
+      return;
+    }
+
+    const inClosedRange = value >= CLOSED_START_ISO && value <= CLOSED_END_ISO;
+
+    if (inClosedRange) {
+      setDateError(
+        `Sorry, we will close from ${formatDDMMYYYYFromISO(
+          CLOSED_START_ISO
+        )} to ${formatDDMMYYYYFromISO(CLOSED_END_ISO)}.`
+      );
+    } else {
+      setDateError("");
+    }
+  }
+
   return (
     <div className="flex items-center justify-center p-12 relative bg-[--background] w-[90vw] lg:w-[60vw] mt-20">
       <div
@@ -163,9 +211,14 @@ export default function BookingForm({ setFormOpen }) {
                   name="date"
                   id="date"
                   required
+                  value={date}
+                  onChange={handleDateChange}
                   placeholder="dd/mm/yyyy"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[--darktext] focus:shadow-md"
                 />
+                {dateError && (
+                  <p className="mt-1 text-sm text-red-600">{dateError}</p>
+                )}
               </div>
             </div>
             <div className="w-full px-3 sm:w-1/2">

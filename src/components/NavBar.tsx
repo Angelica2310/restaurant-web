@@ -23,7 +23,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`sticky top-0 lg:pb-[5px] z-50 transition-all duration-300 ${
+      className={`lg:pb-[5px] transition-all duration-300 ${
         scrolled ? "bg-[rgb(223,220,220,0.8)] " : "bg-[--background]"
       } `}
     >

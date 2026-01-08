@@ -1,82 +1,85 @@
-// "use client";
+"use client";
 
-// import { useEffect, useState } from "react";
-// import { X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
-// function toISODate(d: Date) {
-//   return d.toISOString().slice(0, 10);
-// }
+// convert a JS Date object into a string in YYYY-MM-DD format
+function toISODate(d: Date) {
+  return d.toISOString().slice(0, 10);
+}
 
-// function formatDDMMYYYY(d: Date) {
-//   const dd = String(d.getDate()).padStart(2, "0");
-//   const mm = String(d.getMonth() + 1).padStart(2, "0");
-//   const yyyy = d.getFullYear();
-//   return `${dd}/${mm}/${yyyy}`;
-// }
+function formatDDMMYYYY(d: Date) {
+  const dd = String(d.getDate()).padStart(2, "0");
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const yyyy = d.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
 
-// export default function ClosureModal() {
-//   // 🔧 CONFIG (single source of truth)
-//   const CLOSED_START = new Date(2025, 11, 1); // 1 Dec 2025
-//   const CLOSED_END = new Date(2025, 11, 20); // 20 Dec 2025
+export default function ClosureModal() {
+  // 🔧 CONFIG (single source of truth)
+  const CLOSED_START = new Date(2026, 3, 15); // 15 Feb 2026
+  const CLOSED_END = new Date(2026, 4, 13); // 13 Mar 2026
 
-//   const todayISO = toISODate(new Date());
-//   const startISO = toISODate(CLOSED_START);
-//   const endISO = toISODate(CLOSED_END);
+  const todayISO = toISODate(new Date());
+  const startISO = toISODate(CLOSED_START);
+  const endISO = toISODate(CLOSED_END);
 
-//   const shouldShow = todayISO >= startISO && todayISO <= endISO;
+  const show_from = new Date(2026, 1, 26);
 
-//   const [dismissed, setDismissed] = useState(true);
+  const shouldShow = todayISO >= toISODate(show_from) && todayISO <= endISO;
 
-//   useEffect(() => {
-//     const seen = localStorage.getItem("closureModalDismissed");
-//     if (seen !== "true") {
-//       setDismissed(false);
-//     }
-//   }, []);
+  const [dismissed, setDismissed] = useState(true);
 
-//   function closeModal() {
-//     setDismissed(true);
-//     localStorage.setItem("closureModalDismissed", "true");
-//   }
+  useEffect(() => {
+    const seen = localStorage.getItem("closureModalDismissed");
+    if (seen !== "true") {
+      setDismissed(false);
+    }
+  }, []);
 
-//   if (!shouldShow || dismissed) return null;
+  function closeModal() {
+    setDismissed(true);
+    localStorage.setItem("closureModalDismissed", "true");
+  }
 
-//   return (
-//     <div className="fixed inset-0 z-50 flex items-center justify-center">
-//       {/* Background overlay */}
-//       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+  if (!shouldShow || dismissed) return null;
 
-//       {/* Modal */}
-//       <div className="relative z-10 max-w-lg rounded-2xl bg-white p-6 shadow-xl">
-//         <button
-//           onClick={closeModal}
-//           className="absolute right-4 top-4 text-gray-500 hover:text-gray-800"
-//           aria-label="Close"
-//         >
-//           <X />
-//         </button>
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-//         <h2 className="text-2xl font-semibold text-gray-900">
-//           🚧 Temporary Closure
-//         </h2>
+      {/* Modal */}
+      <div className="relative z-10 max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+        <button
+          onClick={closeModal}
+          className="absolute right-4 top-4 text-gray-500 hover:text-gray-800"
+          aria-label="Close"
+        >
+          <X />
+        </button>
 
-//         <p className="mt-4 text-gray-700">
-//           Our restaurant will be closed from{" "}
-//           <strong>{formatDDMMYYYY(CLOSED_START)}</strong> to{" "}
-//           <strong>{formatDDMMYYYY(CLOSED_END)}</strong>.
-//         </p>
+        <h2 className="text-2xl font-semibold text-gray-900">
+          🚧 Temporary Closure
+        </h2>
 
-//         <p className="mt-2 text-gray-600">
-//           We’ll reopen soon. Thank you for your understanding ❤️
-//         </p>
+        <p className="mt-4 text-gray-700">
+          Our restaurant will be closed from{" "}
+          <strong>{formatDDMMYYYY(CLOSED_START)}</strong> to{" "}
+          <strong>{formatDDMMYYYY(CLOSED_END)}</strong>.
+        </p>
 
-//         <button
-//           onClick={closeModal}
-//           className="mt-6 w-full rounded-xl bg-[--darktext] px-4 py-3 text-white font-medium"
-//         >
-//           OK, got it
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
+        <p className="mt-2 text-gray-600">
+          We’ll reopen soon. Thank you for your understanding ❤️
+        </p>
+
+        <button
+          onClick={closeModal}
+          className="mt-6 w-full rounded-xl bg-[--darktext] px-4 py-3 text-white font-medium"
+        >
+          OK, got it
+        </button>
+      </div>
+    </div>
+  );
+}
