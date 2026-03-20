@@ -3,7 +3,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
-import Announcement from "@/components/Announcement";
+// import Announcement from "@/components/Announcement";
 
 const delius = Delius_Unicase({
   variable: "--font-delius",
@@ -35,7 +35,6 @@ export default function RootLayout({ children }) {
         } min-h-screen flex flex-col`}
       >
         <div className="sticky top-0 z-50">
-          <Announcement />
           <NavBar />
         </div>
         {children}
