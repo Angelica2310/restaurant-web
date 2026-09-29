@@ -18,8 +18,15 @@ export default function BookingForm({ setFormOpen }) {
 
   const [message, setMessage] = useState("");
 
-  const CLOSED_START_ISO = "2026-02-15";
-  const CLOSED_END_ISO = "2026-03-13";
+  const CLOSED_START_ISO = "2026-10-18";
+  const CLOSED_END_ISO = "2026-10-18";
+
+  const closedMessage =
+    CLOSED_START_ISO === CLOSED_END_ISO
+      ? `Sorry, we will be closed on ${formatDDMMYYYYFromISO(CLOSED_START_ISO)}.`
+      : `Sorry, we will close from ${formatDDMMYYYYFromISO(
+          CLOSED_START_ISO
+        )} to ${formatDDMMYYYYFromISO(CLOSED_END_ISO)}.`;
 
   const [date, setDate] = useState("");
   const [dateError, setDateError] = useState("");
@@ -44,9 +51,7 @@ export default function BookingForm({ setFormOpen }) {
     const inClosedRange = date >= CLOSED_START_ISO && date <= CLOSED_END_ISO;
 
     if (inClosedRange) {
-      setDateError(
-        `Sorry, we will close from ${CLOSED_START_ISO} to ${CLOSED_END_ISO}.`
-      );
+      setDateError(closedMessage);
       return;
     }
 
@@ -104,11 +109,7 @@ export default function BookingForm({ setFormOpen }) {
     const inClosedRange = value >= CLOSED_START_ISO && value <= CLOSED_END_ISO;
 
     if (inClosedRange) {
-      setDateError(
-        `Sorry, we will close from ${formatDDMMYYYYFromISO(
-          CLOSED_START_ISO
-        )} to ${formatDDMMYYYYFromISO(CLOSED_END_ISO)}.`
-      );
+      setDateError(closedMessage);
     } else {
       setDateError("");
     }
