@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import { X } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { Closure, findClosure } from "@/libs/closures";
 
 type BookingFormProps = {
   setFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,15 +19,13 @@ export default function BookingForm({ setFormOpen }) {
 
   const [message, setMessage] = useState("");
 
-  const CLOSED_START_ISO = "2026-10-18";
-  const CLOSED_END_ISO = "2026-10-18";
-
-  const closedMessage =
-    CLOSED_START_ISO === CLOSED_END_ISO
-      ? `Sorry, we will be closed on ${formatDDMMYYYYFromISO(CLOSED_START_ISO)}.`
+  function closedMessage(closure: Closure) {
+    return closure.start === closure.end
+      ? `Sorry, we will be closed on ${formatDDMMYYYYFromISO(closure.start)}.`
       : `Sorry, we will close from ${formatDDMMYYYYFromISO(
-          CLOSED_START_ISO
-        )} to ${formatDDMMYYYYFromISO(CLOSED_END_ISO)}.`;
+          closure.start
+        )} to ${formatDDMMYYYYFromISO(closure.end)}.`;
+  }
 
   const [date, setDate] = useState("");
   const [dateError, setDateError] = useState("");
@@ -48,10 +47,10 @@ export default function BookingForm({ setFormOpen }) {
       return;
     }
 
-    const inClosedRange = date >= CLOSED_START_ISO && date <= CLOSED_END_ISO;
+    const closure = findClosure(date);
 
-    if (inClosedRange) {
-      setDateError(closedMessage);
+    if (closure) {
+      setDateError(closedMessage(closure));
       return;
     }
 
@@ -106,10 +105,10 @@ export default function BookingForm({ setFormOpen }) {
       return;
     }
 
-    const inClosedRange = value >= CLOSED_START_ISO && value <= CLOSED_END_ISO;
+    const closure = findClosure(value);
 
-    if (inClosedRange) {
-      setDateError(closedMessage);
+    if (closure) {
+      setDateError(closedMessage(closure));
     } else {
       setDateError("");
     }
